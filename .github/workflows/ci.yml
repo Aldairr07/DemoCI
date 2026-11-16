@@ -1,0 +1,35 @@
+# Ruta en el repositorio: .github/workflows/ci.yml
+
+name: CI - DemoCI
+
+# Triggers: cuándo se ejecuta el pipeline
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:          # botón para ejecutarlo manualmente
+
+jobs:
+  build:
+    name: Compilar y probar
+    runs-on: ubuntu-latest    # runner: máquina virtual de GitHub
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restaurar dependencias
+        run: dotnet restore
+
+      - name: Compilar
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Ejecutar pruebas
+        run: dotnet test --no-build --configuration Release --verbosity normal
+
