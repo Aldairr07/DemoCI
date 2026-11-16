@@ -1,0 +1,14 @@
+# Carpetas de compilación
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# Resultados de pruebas
+TestResults/
