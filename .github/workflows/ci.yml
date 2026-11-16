@@ -7,7 +7,7 @@ on:
   push:
     branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
   workflow_dispatch:          # botón para ejecutarlo manualmente
 
 jobs:
