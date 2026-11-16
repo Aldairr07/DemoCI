@@ -15,7 +15,7 @@ public class Calculadora
     {
         if (b == 0)
         {
-            throw new DivideByZeroException("No se puede dividir entre cero.");
+            throw new DivideByZeroException("No se puede dividir entre cero");
         }
 
         return (double)a / b;
